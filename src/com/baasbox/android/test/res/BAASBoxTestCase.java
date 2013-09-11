@@ -49,6 +49,8 @@ public abstract class BAASBoxTestCase extends ActivityInstrumentationTestCase2<S
 		BAASBoxConfig config = new BAASBoxConfig();
 		config.API_DOMAIN = Server.API_DOMAIN;
 		config.API_BASEPATH = Server.API_BASEPATH;
+		config.HTTP_CONNECTION_TIMEOUT = 100000;
+		config.HTTP_SOCKET_TIMEOUT = 100000;
 		return config;
 	};
 	
