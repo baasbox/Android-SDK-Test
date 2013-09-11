@@ -13,6 +13,8 @@ import com.baasbox.android.internal.RESTInterface;
 import com.baasbox.android.test.StubActivity;
 
 public abstract class BAASBoxTestCase extends ActivityInstrumentationTestCase2<StubActivity> {
+	
+	public static final boolean TEST_HTTPS = false;
 
 	public BAASBoxTestCase() {
 		super(StubActivity.class);
@@ -47,6 +49,9 @@ public abstract class BAASBoxTestCase extends ActivityInstrumentationTestCase2<S
 	
 	protected BAASBoxConfig buildConfig() {
 		BAASBoxConfig config = new BAASBoxConfig();
+		config.HTTP_PORT = TEST_HTTPS ? 4430 : 12345;
+		config.HTTPS = TEST_HTTPS;
+		
 		config.API_DOMAIN = Server.API_DOMAIN;
 		config.API_BASEPATH = Server.API_BASEPATH;
 		config.HTTP_CONNECTION_TIMEOUT = 100000;
